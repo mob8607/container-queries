@@ -1,8 +1,6 @@
-.main {
-  container-type: inline-size;
-}
-
-.sidebar {
+.main,
+.sidebar,
+.tile-wrapper {
   container-type: inline-size;
 }
 
@@ -13,5 +11,10 @@
 
   .tile button {
     width: 100%;
+  }
+
+  .tile img {
+    width: 100%;
+    padding: 0 0 20px 0;
   }
 }

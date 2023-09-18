@@ -12,6 +12,12 @@
   padding: 20px;
 }
 
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
 .sidebar {
   padding: 20px;
   background: #D9AC84;
@@ -23,6 +29,11 @@
   gap: 20px;
 }
 
+.tile {
+  border: 1px solid #eeeeee;
+  padding: 10px;
+}
+
 button {
   background-color: #333333;
   color: #ffffff;
@@ -32,4 +43,13 @@ button {
   min-height: 30px;
   border-radius: 3px;
   font-size: 18px;
+}
+
+.clear {
+  clear: both;
+}
+
+.tile img {
+  float: left;
+  padding: 10px;
 }
