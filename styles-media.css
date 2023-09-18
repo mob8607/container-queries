@@ -1,0 +1,10 @@
+@media only screen and (max-width: 380px) {
+  .button-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tile button {
+    width: 100%;
+  }
+}
+

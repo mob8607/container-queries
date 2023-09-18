@@ -1,0 +1,17 @@
+.main {
+  container-type: inline-size;
+}
+
+.sidebar {
+  container-type: inline-size;
+}
+
+@container (max-width: 380px) {
+  .button-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tile button {
+    width: 100%;
+  }
+}

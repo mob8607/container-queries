@@ -1,0 +1,35 @@
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  background: #dddddd;
+  min-height: 300px;
+  font-family: Helvetica;
+  color: #333333;
+}
+
+.main {
+  background: #A69F3C;
+  padding: 20px;
+}
+
+.sidebar {
+  padding: 20px;
+  background: #D9AC84;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+button {
+  background-color: #333333;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  min-height: 30px;
+  border-radius: 3px;
+  font-size: 18px;
+}
