@@ -1,5 +1,5 @@
 ---
-theme: eloc
+theme: seriph
 background: https://source.unsplash.com/collection/94734566/1920x1080
 class: text-center
 highlighter: shiki
@@ -16,8 +16,9 @@ title: Welcome to Container Queries
 mdc: true
 ---
 
-# CONTAINER QUERIES
-
+<!--
+The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+-->
 
 ---
 transition: fade-out
@@ -51,9 +52,9 @@ Here is another comment.
 layout: default
 ---
 
-# 
+# Container Queries
 
-Sometimes in 2012 AD:
+Sometimes in 2012:
 
 <v-clicks>
 
@@ -65,11 +66,12 @@ Web devs: **Nice cool, thx bro.**
 
 <img src="/05.gif" style="margin: auto;" />
 
+
 </v-clicks>
 
 ---
 
-[Coding Time 01](https://codepen.io/mob6807/pen/mdaqErb)
+[Coding Time 01](https://jsfiddle.net/_omat/fga13m94/13/)
 
 ---
 
@@ -83,11 +85,7 @@ _Designer enters the game_
 
 ---
 
-[Coding Time 02](https://codepen.io/mob6807/pen/PoXOzbq?editors=1100)
-
----
-
-<img src="/06.gif" style="margin: auto;" />
+[Coding Time 02](https://jsfiddle.net/_omat/f9h7ncmL/8/
 
 ---
 
@@ -95,7 +93,7 @@ _Designer enters the game_
 
 Web devs: **Sorry to bother, but can we also make stuff responsive to the container?**
 
-Browser devs: _**... about that... Nope, not gonna happen. Not possible.**_
+Browser devs: _**... about that... Sorry. Nope, not gonna happen. Not possible.**_
 
 Web devs:
 
@@ -107,18 +105,9 @@ Web devs:
 
 ---
 
-Was this the end of the story?
-
-
----
-
-... years went by and developers dealt with those limitations, everyone was living his life and people forgot what they really wanted.
-
----
-
 <v-clicks>
 
-... until 2022 ...
+End of story?
 
 Browser devs: _**Remember about that thing you asked some time ago?**_
 
@@ -140,7 +129,7 @@ Browser devs: _**Remember about that thing you asked some time ago?**_
 
 ---
 
-[Coding Time 03](https://codepen.io/mob6807/pen/PoXOzbq?editors=1100)
+[Coding Time 03](https://jsfiddle.net/_omat/f9h7ncmL/17/)
 
 ---
 
@@ -150,53 +139,12 @@ Browser devs: _**Remember about that thing you asked some time ago?**_
 
 Did they lie to us?
 
----
-
-# Why not?
-
-<img src="/07.png" style="margin: auto;">
-
-<span style="font-size: 16px;">
-https://css-tricks.com/container-queries-once-more-unto-the-breach/
-</span>
-
----
-
-# Box sizing
-
-- Every box has an intrinsic size.
-- The content defines the size of the box.
-- Some boxes have an extrinsic size.
-- The container defines the size of the box.
-
----
-
-<img src="/08.png" style="margin: auto;">
-
-<span style="font-size: 16px;">
-https://css-tricks.com/container-queries-once-more-unto-the-breach/
-</span>
-
----
-
-# Limitations
-
-- You need to define what you want to query from a container.
-- container-type: size, inline-size, normal
 
 ---
 
 Example with grid:
 
-[Coding Time 04](https://codepen.io/mob6807/pen/poqdbRw)
+[Coding Time 04](https://jsfiddle.net/_omat/6wb8pxqd/10/)
 
 ---
 
-# Thanks to 
-
-- Miriam Suzanne for the inspiration 
-- Patric Eberle for your motivation and help with the talk
-- valantic for hosting the webdev
-- you for listening
-
----
