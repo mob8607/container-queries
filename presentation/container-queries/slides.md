@@ -14,6 +14,8 @@ drawings:
 transition: slide-left
 title: Welcome to Container Queries
 mdc: true
+canvasWidth: 1550
+layout: center
 ---
 
 # CONTAINER QUERIES
@@ -57,13 +59,16 @@ Sometimes in 2012 AD:
 
 <v-clicks>
 
-Web devs: **We want to do responsive stuff dependant on screen size!**
+Web devs:
+**We want to do responsive stuff dependant on screen size!**
+<br>
+Browser devs: 
+_**Sure, here we got media queries.**_
+<br>
+Web devs: 
+**Nice cool, thx bro.**
 
-Browser devs: _**Yeah, here you have media queries.**_
-
-Web devs: **Nice cool, thx bro.**
-
-<img src="/05.gif" style="margin: auto;" />
+<img src="/thumbsup.gif" style="margin: auto; width: 20vw;" />
 
 </v-clicks>
 
@@ -73,13 +78,17 @@ Web devs: **Nice cool, thx bro.**
 
 ---
 
-<v-clicks>
-
 _Designer enters the game_
 
-**Hey, our new design has a very cool sidebar. I made it easy for you, just use the same components as on the mobile version.**
+<v-clicks>
+
+**We need a sidebar. Just use the existing mobile styling.<br> It's easy, right?**
 
 </v-clicks>
+
+---
+
+<img src="/sweating.gif" class="main-image" />
 
 ---
 
@@ -87,13 +96,13 @@ _Designer enters the game_
 
 ---
 
-<img src="/06.gif" style="margin: auto;" />
+<img src="/calculate.gif" class="main-image" />
 
 ---
 
-<v-clicks>
+Web devs: **Quick question, how we also make stuff responsive to their container?**
 
-Web devs: **Sorry to bother, but can we also make stuff responsive to the container?**
+<v-clicks>
 
 Browser devs: _**... about that... Nope, not gonna happen. Not possible.**_
 
@@ -103,12 +112,29 @@ Web devs:
 
 ---
 
-<img src="/01.gif" style="margin: auto;" />
+<img src="/sad.gif" class="main-image" />
 
 ---
 
-Was this the end of the story?
+# But why?
 
+- Basic principles of how browser layout works.
+- Every box has an intrinsic size. 
+  - The content defines the size of the box.
+- Some boxes have an extrinsic size. 
+  - The container defines the size of the box.
+
+---
+
+# Why not?
+
+<img src="/code-element-queries.png" style="margin: auto;">
+
+<img src="/text-no-container-queries.png" style="margin: auto;">
+
+<span style="font-size: 16px;">
+https://css-tricks.com/container-queries-once-more-unto-the-breach/
+</span>
 
 ---
 
@@ -116,9 +142,13 @@ Was this the end of the story?
 
 ---
 
-<v-clicks>
+The END
+
+---
 
 ... until 2022 ...
+
+<v-clicks>
 
 Browser devs: _**Remember about that thing you asked some time ago?**_
 
@@ -132,11 +162,7 @@ Browser devs: _**Remember about that thing you asked some time ago?**_
 
 </div>
 
-<img src="/02.gif" style="margin: auto;">
-
----
-
-<img src="/04.gif" style="margin: auto;">
+<img src="/tada.gif" class="main-image" style="width: 50vw;">
 
 ---
 
@@ -144,34 +170,27 @@ Browser devs: _**Remember about that thing you asked some time ago?**_
 
 ---
 
-<img src="/03.gif" style="margin: auto;">
+<img src="/caniuse.png" class="main-image">
 
 ---
+
+<img src="/minions.gif" class="main-image" alt="minions">
+
+---
+
+<img src="/timeout.gif" class="main-image">
+
+<v-clicks>
 
 Did they lie to us?
 
----
-
-# Why not?
-
-<img src="/07.png" style="margin: auto;">
-
-<span style="font-size: 16px;">
-https://css-tricks.com/container-queries-once-more-unto-the-breach/
-</span>
+</v-clicks>
 
 ---
 
-# Box sizing
+# What happened?
 
-- Every box has an intrinsic size.
-- The content defines the size of the box.
-- Some boxes have an extrinsic size.
-- The container defines the size of the box.
-
----
-
-<img src="/08.png" style="margin: auto;">
+<img src="/text-solution.png" class="main-image">
 
 <span style="font-size: 16px;">
 https://css-tricks.com/container-queries-once-more-unto-the-breach/
@@ -181,21 +200,102 @@ https://css-tricks.com/container-queries-once-more-unto-the-breach/
 
 # Limitations
 
-- You need to define what you want to query from a container.
-- container-type: size, inline-size, normal
+- You need to define what you want to query from a container
+- As a developer we need to create explicit containers to measure them
+- Some of the default behavior changes for containers
+  - `position: fixed` reacts now to the defined container
+  - Box model changes
+  
+---
+
+# Container
+
+- CSS property `contain` tells browsers how to render specific elements
+  - You can set layout, size, paint, content, or none
+- `container-type`: `inline-size` or `size`
+- Container can't query themselves
+- You can't change what you query
+- In grid you can't query the space the item would take -> you need to add a container for each element to measure.
 
 ---
 
-Example with grid:
+- polyfill for older versions of the current browsers
+- Finding container query the nearest ancestor
+- container can have a name (or multiple)
+- range syntax for container queries (and media queries now)
+
+```css
+
+.sidebar {
+  container-type: inline-size;
+  container-name: sidebar;
+}
+
+@container sidebar (50px < width < 380px) {
+  .card {
+    background-color: red;
+  }
+}
+
+```
+
+---
+
+# Container Query Units
+
+- cqw, cqh, cqi, cqb, cqmin, cqmax -> Same as viewport units but for containers.
+- Can be used for animations
+
+<!--
+cqw: 1% of a query container's width
+cqh: 1% of a query container's height
+cqi: 1% of a query container's inline size
+cqb: 1% of a query container's block size
+cqmin: The smaller value of either cqi or cqb
+cqmax: The larger value of either cqi or cqb
+-->
+
+---
+
+# Examples
+
+```css
+@container (width > 220px) {
+  button span.full-text {
+    display: inline;
+  }
+}
+
+@container (100px < width < 220px) {
+  button span.small-text {
+    display: inline;
+  }
+
+  button span.full-text {
+    display: none;
+  }
+}
+```
 
 [Coding Time 04](https://codepen.io/mob6807/pen/poqdbRw)
 
 ---
 
+# What's next
+
+- Queries on style (custom properties) of the container
+  - `@container style(--colors: invert)`
+  - No containment required (Every element is a style query by default)
+  - Is a sticky element currently snapped?
+  - Currently only on chromium browsers in experimental mode
+- Hopefully, but not confirmed:
+  - Queries on normal style properties
+---
+
 # Thanks to 
 
 - Miriam Suzanne for the inspiration 
-- Patric Eberle for your motivation and help with the talk
+- Patric Eberle for the motivation and help with the talk
 - valantic for hosting the webdev
 - you for listening
 
