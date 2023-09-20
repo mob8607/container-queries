@@ -60,7 +60,7 @@ layout: default
 
 # 
 
-Somewhen around 2010 AD:
+Sometime around 2010 AD:
 
 <v-clicks>
 
@@ -108,7 +108,7 @@ _Designer enters the game_
 
 <v-clicks>
 
-Web devs: **Quick question, how can make stuff responsive to their container?**<br>
+Web devs: **Quick question, how can we make stuff responsive to their container?**<br>
 
 Browser devs: _**... about that... Nope, not gonna happen. Simply not possible.**_
 
@@ -152,7 +152,7 @@ https://css-tricks.com/container-queries-once-more-unto-the-breach/
 
 ---
 
-... years went by and developers dealt with those limitations, everyone was living his life and people forgot what they really wanted.
+... years went by and developers dealt with those limitations, everyone was living their life and people forgot what they really wanted.
 
 ---
 
@@ -219,7 +219,7 @@ https://css-tricks.com/container-queries-once-more-unto-the-breach/
 - You need to define what you want to query from a container
 - As a developer we need to create explicit containers to measure them
 - CSS property `contain` tells browsers how to render specific elements
-  - You can set layout, size, paint, content, or none
+  - You can set `layout`, `size`, `paint`, `content`, or `none`
 - `container-type`: `inline-size` or `size`
   
 ---
@@ -227,7 +227,7 @@ https://css-tricks.com/container-queries-once-more-unto-the-breach/
 # Things to keep in mind
 
 - Some of the default behavior changes for containers
-  - `position: fixed` reacts now to the defined container
+  - `position: fixed` now reacts to the defined container
   - Changes how content is handled
 - Container can't query themselves
 - You can't change what you query
@@ -237,9 +237,9 @@ https://css-tricks.com/container-queries-once-more-unto-the-breach/
  
 # Container
 
-- Finding container query the nearest ancestor
-- container can have a name (or multiple)
-- range syntax for container queries (and media queries now)
+- Container query looks for the nearest ancestor
+- Container can have a name (or multiple)
+- Range syntax for container queries (now also for media queries)
 
 ```css
 
@@ -260,7 +260,7 @@ https://css-tricks.com/container-queries-once-more-unto-the-breach/
 
 # Container Query Units
 
-- cqw, cqh, cqi, cqb, cqmin, cqmax -> Same as viewport units but for containers.
+- `cqw, cqh, cqi, cqb, cqmin, cqmax` -> Same as viewport units but for containers.
 - Can be used for animations
 
 <!--
@@ -280,18 +280,22 @@ cqmax: The larger value of either cqi or cqb
 <div>
 
 ```css
+button .small-text, button .full-text {
+  display: none;
+}
+
 @container (width > 220px) {
-  button span.full-text {
+  button .full-text {
     display: inline;
   }
 }
 
 @container (100px < width < 220px) {
-  button span.small-text {
+  button .small-text {
     display: inline;
   }
 
-  button span.full-text {
+  button .full-text {
     display: none;
   }
 }
@@ -315,9 +319,9 @@ cqmax: The larger value of either cqi or cqb
 
 # What's next
 
-- Queries on style (custom properties) of the container (chromium only)
+- Queries on style (custom properties) of the container (Chromium only)
   - `@container style(--colors: invert)`
-  - No containment required (Every element is a style query by default)
+  - No containment required (every element is a style query by default)
 - Hopefully, but not confirmed:
   - Queries on normal style properties
   - Is a sticky element currently snapped?
@@ -329,6 +333,6 @@ cqmax: The larger value of either cqi or cqb
 
 - Miriam Suzanne for the inspiration 
 - Patric Eberle for the motivation and help with the talk
-- valantic and vlbgWebDev for hosting of the event
+- valantic and vlbgWebDev for hosting the event
 - you for listening
 
