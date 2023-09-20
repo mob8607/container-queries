@@ -20,17 +20,22 @@ layout: center
 
 # CONTAINER QUERIES
 
+<v-clicks>
 
----
-transition: fade-out
+- What is it?
+- Can I eat it?
+- What took them so long?
+
+</v-clicks>
+
 ---
 
 # Hello
 
-- I'm Mathias Ober.
+- I'm Mathias Ober
 - Frontend Developer > 10 years
 - Working at valantic
-- X / twitter: **@_omat** 👨‍💻 or **@SkyKartoffel** 🎮
+- X / Twitter: **@_omat** 👨‍💻 or **@SkyKartoffel** 🎮
 - Hobbies: 🎮 ⛵︎ 🏸 ⛷️ 🎤 🎸
 
 <style>
@@ -55,7 +60,7 @@ layout: default
 
 # 
 
-Sometimes in 2012 AD:
+Somewhen around 2010 AD:
 
 <v-clicks>
 
@@ -63,10 +68,10 @@ Web devs:
 **We want to do responsive stuff dependant on screen size!**
 <br>
 Browser devs: 
-_**Sure, here we got media queries.**_
+_**Sure, here we got you media queries.**_
 <br>
 Web devs: 
-**Nice cool, thx bro.**
+**Noice, cool, thx bro.**
 
 <img src="/thumbsup.gif" style="margin: auto; width: 20vw;" />
 
@@ -100,15 +105,23 @@ _Designer enters the game_
 
 ---
 
-Web devs: **Quick question, how we also make stuff responsive to their container?**
 
 <v-clicks>
 
-Browser devs: _**... about that... Nope, not gonna happen. Not possible.**_
+Web devs: **Quick question, how can make stuff responsive to their container?**<br>
+
+Browser devs: _**... about that... Nope, not gonna happen. Simply not possible.**_
 
 Web devs:
 
 </v-clicks>
+
+<style>
+p {
+text-align: left;
+    width: 100%;
+}
+</style>
 
 ---
 
@@ -118,11 +131,12 @@ Web devs:
 
 # But why?
 
-- Basic principles of how browser layout works.
-- Every box has an intrinsic size. 
-  - The content defines the size of the box.
-- Some boxes have an extrinsic size. 
-  - The container defines the size of the box.
+- Basic principles of how browser layout works
+- Every box has an intrinsic size
+  - The content defines the size of the box
+- Some boxes have an extrinsic size
+  - The context defines the size of the box
+  - User sets width for component
 
 ---
 
@@ -162,7 +176,7 @@ Browser devs: _**Remember about that thing you asked some time ago?**_
 
 </div>
 
-<img src="/tada.gif" class="main-image" style="width: 50vw;">
+<img src="/tada.gif" class="main-image" style="width: 40vw;">
 
 ---
 
@@ -171,6 +185,8 @@ Browser devs: _**Remember about that thing you asked some time ago?**_
 ---
 
 <img src="/caniuse.png" class="main-image">
+
+There is a polyfill for older versions of the supported browsers
 
 ---
 
@@ -202,24 +218,25 @@ https://css-tricks.com/container-queries-once-more-unto-the-breach/
 
 - You need to define what you want to query from a container
 - As a developer we need to create explicit containers to measure them
-- Some of the default behavior changes for containers
-  - `position: fixed` reacts now to the defined container
-  - Box model changes
-  
----
-
-# Container
-
 - CSS property `contain` tells browsers how to render specific elements
   - You can set layout, size, paint, content, or none
 - `container-type`: `inline-size` or `size`
-- Container can't query themselves
-- You can't change what you query
-- In grid you can't query the space the item would take -> you need to add a container for each element to measure.
-
+  
 ---
 
-- polyfill for older versions of the current browsers
+# Things to keep in mind
+
+- Some of the default behavior changes for containers
+  - `position: fixed` reacts now to the defined container
+  - Changes how content is handled
+- Container can't query themselves
+- You can't change what you query
+- Grid: Don't query the grid container -> add wrapper for each element to measure
+
+---
+ 
+# Container
+
 - Finding container query the nearest ancestor
 - container can have a name (or multiple)
 - range syntax for container queries (and media queries now)
@@ -259,6 +276,9 @@ cqmax: The larger value of either cqi or cqb
 
 # Examples
 
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+<div>
+
 ```css
 @container (width > 220px) {
   button span.full-text {
@@ -277,26 +297,38 @@ cqmax: The larger value of either cqi or cqb
 }
 ```
 
-[Coding Time 04](https://codepen.io/mob6807/pen/poqdbRw)
+</div>
+
+<div style="display: grid;">
+<img src="/button1.png" style="margin: auto;">
+
+<img src="/button2.png" style="margin: auto;">
+
+<img src="/button3.png" style="margin: auto;">
+</div>
+</div>
+
+[Coding Time: Button](https://codepen.io/mob6807/pen/gOZXGmB)<br>
+[Coding Time: Grid](https://codepen.io/mob6807/pen/poqdbRw)
 
 ---
 
 # What's next
 
-- Queries on style (custom properties) of the container
+- Queries on style (custom properties) of the container (chromium only)
   - `@container style(--colors: invert)`
   - No containment required (Every element is a style query by default)
-  - Is a sticky element currently snapped?
-  - Currently only on chromium browsers in experimental mode
 - Hopefully, but not confirmed:
   - Queries on normal style properties
+  - Is a sticky element currently snapped?
+  - and so on
+  
 ---
 
 # Thanks to 
 
 - Miriam Suzanne for the inspiration 
 - Patric Eberle for the motivation and help with the talk
-- valantic for hosting the webdev
+- valantic and vlbgWebDev for hosting of the event
 - you for listening
 
----
